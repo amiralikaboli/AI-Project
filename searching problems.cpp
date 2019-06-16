@@ -144,7 +144,7 @@ public:
 			vector<Move> mv=prob.actions(cur);
 			for (int i=0;i<mv.size();++i){
 				State nx=prob.result(cur,mv[i]);
-				if(mark.find(nx)==mark.end()){
+				if(mark.find(nx)==mark.end() or dist[nx]>dist[cur]){
 					stk.push(nx);
 					mark[nx]=1;
 					dist[nx]=dist[cur]+1;
